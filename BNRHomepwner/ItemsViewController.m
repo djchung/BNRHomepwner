@@ -17,9 +17,11 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
+        
         for (int i = 0; i < 5; i++) {
             [[BNRItemStore sharedStore]createItem];
         }
+        
     }
     return self;
 }
@@ -31,16 +33,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;  //for Bronze solution
+//    return 2;  for Bronze solution
+    return 1;
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    /***Bronze solution
     if (section == 0) {
         return [[[BNRItemStore sharedStore]itemsOver50] count];
     } else {
         return [[[BNRItemStore sharedStore]itemsUnder50]count];
     }
+    ***/
+    return [[[BNRItemStore sharedStore]allItems]count] + 1; //for Silver solution
     
 }
 
@@ -52,6 +59,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     
+    /***Bronze solution
     if (indexPath.section == 0) {
         BNRItem *bnrItem = [[[BNRItemStore sharedStore]itemsOver50]objectAtIndex:indexPath.row];
         cell.textLabel.text = bnrItem.description;
@@ -63,7 +71,17 @@
         
         return cell;
     }
-
+    ***/
+    
+    while (indexPath.row < [[[BNRItemStore sharedStore]allItems]count]) {
+        BNRItem *p = [[[BNRItemStore sharedStore]allItems]objectAtIndex:indexPath.row];
+        cell.textLabel.text = p.description;
+        return cell;
+    }
+    
+    cell.textLabel.text = @"No more items";
+    
+    return cell;
 }
 
 @end
