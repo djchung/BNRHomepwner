@@ -26,6 +26,11 @@
     return self;
 }
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"GoldenGateBridge.jpg"]];
+}
 - (id)initWithStyle:(UITableViewStyle)style
 {
     return [self init];
@@ -50,7 +55,14 @@
     return [[[BNRItemStore sharedStore]allItems]count] + 1; //for Silver solution
     
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    while (indexPath.row < [[[BNRItemStore sharedStore]allItems]count]){
+        return 66;
+    }
+    return 44;
+    
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
@@ -72,10 +84,13 @@
         return cell;
     }
     ***/
-    
+  
     while (indexPath.row < [[[BNRItemStore sharedStore]allItems]count]) {
+        
         BNRItem *p = [[[BNRItemStore sharedStore]allItems]objectAtIndex:indexPath.row];
+        
         cell.textLabel.text = p.description;
+        cell.textLabel.font = [UIFont systemFontOfSize:20];
         return cell;
     }
     
