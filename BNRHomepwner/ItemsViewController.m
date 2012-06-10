@@ -51,8 +51,8 @@
         return [[[BNRItemStore sharedStore]itemsUnder50]count];
     }
     ***/
-//    return [[[BNRItemStore sharedStore]allItems]count] + 1; //for Silver solution
-    return [[[BNRItemStore sharedStore]allItems]count];
+    return [[[BNRItemStore sharedStore]allItems]count] + 1; //for Silver solution
+//    return [[[BNRItemStore sharedStore]allItems]count];
     
 }
 
@@ -88,7 +88,7 @@
     }
     ***/
   
-    /**
+
     while (indexPath.row < [[[BNRItemStore sharedStore]allItems]count]) {
         
         BNRItem *p = [[[BNRItemStore sharedStore]allItems]objectAtIndex:indexPath.row];
@@ -99,11 +99,12 @@
     }
     
     cell.textLabel.text = @"No more items";
-    **/
+    
+    /*
     BNRItem *p = [[[BNRItemStore sharedStore]allItems]objectAtIndex:indexPath.row];
     
     cell.textLabel.text = p.description;
-    
+    */
     return cell;
 }
 
@@ -121,7 +122,23 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-//    [[BNRItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+    [[BNRItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == [[[BNRItemStore sharedStore]allItems]count]) {
+        return NO;
+    }
+    return YES;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    if (proposedDestinationIndexPath.row == [[[BNRItemStore sharedStore]allItems]count]) {
+        return sourceIndexPath;
+    }
+    return proposedDestinationIndexPath;
 }
 - (UIView *)headerView
 {
