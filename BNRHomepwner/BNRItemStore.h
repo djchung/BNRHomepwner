@@ -23,5 +23,8 @@
 - (NSArray *)itemsUnder50;
 - (NSArray *)itemsOver50;
 - (BNRItem *)createItem;
+- (void) removeItem:(BNRItem *)p;
+- (void)moveItemAtIndex:(int)from 
+                toIndex:(int)to;
 
 @end

@@ -17,6 +17,7 @@
 		73FD95EB157DFD1B00C56498 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95EA157DFD1B00C56498 /* BNRItem.m */; };
 		73FD95EE157E011A00C56498 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95ED157E011A00C56498 /* BNRItemStore.m */; };
 		73FD95F01581241B00C56498 /* GoldenGateBridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73FD95EF1581241B00C56498 /* GoldenGateBridge.jpg */; };
+		73FD95F51581BB9600C56498 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73FD95F41581BB9600C56498 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		73FD95EC157E011900C56498 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
 		73FD95ED157E011A00C56498 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
 		73FD95EF1581241B00C56498 /* GoldenGateBridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GoldenGateBridge.jpg; sourceTree = "<group>"; };
+		73FD95F41581BB9600C56498 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				73FD95EC157E011900C56498 /* BNRItemStore.h */,
 				73FD95ED157E011A00C56498 /* BNRItemStore.m */,
 				73FD95E8157DFA2D00C56498 /* Controllers */,
+				73FD95F31581BB7400C56498 /* Views */,
 				73FD95D5157DF93100C56498 /* Supporting Files */,
 			);
 			path = BNRHomepwner;
@@ -114,6 +117,14 @@
 				73FD95E6157DFA1A00C56498 /* ItemsViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		73FD95F31581BB7400C56498 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				73FD95F41581BB9600C56498 /* HeaderView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 			files = (
 				73FD95D9157DF93100C56498 /* InfoPlist.strings in Resources */,
 				73FD95F01581241B00C56498 /* GoldenGateBridge.jpg in Resources */,
+				73FD95F51581BB9600C56498 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
