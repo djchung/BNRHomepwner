@@ -64,4 +64,9 @@
 - (IBAction)backgroundTapped:(id)sender {
     [self.view endEditing:YES];
 }
+- (IBAction)changeDateButton:(id)sender {
+    ChangeDateViewController *cdvc = [[ChangeDateViewController alloc]init];
+    cdvc.item = self.item;
+    [self.navigationController pushViewController:cdvc animated:YES];
+}
 @end

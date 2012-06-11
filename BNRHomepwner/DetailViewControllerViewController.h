@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChangeDateViewController.h"
 
 @class BNRItem;
 
@@ -20,4 +21,5 @@
 }
 - (IBAction)backgroundTapped:(id)sender;
 @property (strong, nonatomic) BNRItem *item;
+- (IBAction)changeDateButton:(id)sender;
 @end

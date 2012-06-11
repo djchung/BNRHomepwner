@@ -19,6 +19,8 @@
 		73FD95F01581241B00C56498 /* GoldenGateBridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73FD95EF1581241B00C56498 /* GoldenGateBridge.jpg */; };
 		73FD95F91585387D00C56498 /* DetailViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95F71585387D00C56498 /* DetailViewControllerViewController.m */; };
 		73FD95FA1585387D00C56498 /* DetailViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73FD95F81585387D00C56498 /* DetailViewControllerViewController.xib */; };
+		73FD95FE158647DD00C56498 /* ChangeDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95FC158647DD00C56498 /* ChangeDateViewController.m */; };
+		73FD95FF158647DD00C56498 /* ChangeDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73FD95FD158647DD00C56498 /* ChangeDateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,9 @@
 		73FD95F61585387D00C56498 /* DetailViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewControllerViewController.h; sourceTree = "<group>"; };
 		73FD95F71585387D00C56498 /* DetailViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewControllerViewController.m; sourceTree = "<group>"; };
 		73FD95F81585387D00C56498 /* DetailViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewControllerViewController.xib; sourceTree = "<group>"; };
+		73FD95FB158647DD00C56498 /* ChangeDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDateViewController.h; sourceTree = "<group>"; };
+		73FD95FC158647DD00C56498 /* ChangeDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeDateViewController.m; sourceTree = "<group>"; };
+		73FD95FD158647DD00C56498 /* ChangeDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeDateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +119,8 @@
 		73FD95E8157DFA2D00C56498 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				73FD95FB158647DD00C56498 /* ChangeDateViewController.h */,
+				73FD95FC158647DD00C56498 /* ChangeDateViewController.m */,
 				73FD95DD157DF93100C56498 /* BNRHomepwnerAppDelegate.h */,
 				73FD95DE157DF93100C56498 /* BNRHomepwnerAppDelegate.m */,
 				73FD95F61585387D00C56498 /* DetailViewControllerViewController.h */,
@@ -128,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				73FD95F81585387D00C56498 /* DetailViewControllerViewController.xib */,
+				73FD95FD158647DD00C56498 /* ChangeDateViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 				73FD95D9157DF93100C56498 /* InfoPlist.strings in Resources */,
 				73FD95F01581241B00C56498 /* GoldenGateBridge.jpg in Resources */,
 				73FD95FA1585387D00C56498 /* DetailViewControllerViewController.xib in Resources */,
+				73FD95FF158647DD00C56498 /* ChangeDateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +211,7 @@
 				73FD95EB157DFD1B00C56498 /* BNRItem.m in Sources */,
 				73FD95EE157E011A00C56498 /* BNRItemStore.m in Sources */,
 				73FD95F91585387D00C56498 /* DetailViewControllerViewController.m in Sources */,
+				73FD95FE158647DD00C56498 /* ChangeDateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
