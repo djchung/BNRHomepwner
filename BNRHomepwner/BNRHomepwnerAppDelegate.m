@@ -20,7 +20,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     ItemsViewController *ivc = [[ItemsViewController alloc]init];
-    self.window.rootViewController = ivc;
+    UINavigationController *uinav = [[UINavigationController alloc]initWithRootViewController:ivc];
+    self.window.rootViewController = uinav;
     return YES;
 }
 

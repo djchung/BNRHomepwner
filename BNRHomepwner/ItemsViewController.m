@@ -17,7 +17,11 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-      
+        self.navigationItem.title = @"Homepwner";
+        UIBarButtonItem *add = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem:)];
+        self.navigationItem.rightBarButtonItem = add;
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
         
     }
     return self;
@@ -29,6 +33,12 @@
     /*** for Gold solution
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"GoldenGateBridge.jpg"]];
      **/
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.tableView reloadData];
 }
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -107,6 +117,16 @@
     */
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *items = [[BNRItemStore sharedStore]allItems];
+    BNRItem *item = [items objectAtIndex:indexPath.row];
+    
+    DetailViewControllerViewController *dvc = [[DetailViewControllerViewController alloc]init];
+    dvc.item = item;
+    [self.navigationController pushViewController:dvc animated:YES];
+
+}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -140,39 +160,13 @@
     }
     return proposedDestinationIndexPath;
 }
-- (UIView *)headerView
-{
-    if (!headerView) {
-        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
-    }
-    return headerView;
-}
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    return [self headerView];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return [[self headerView]bounds].size.height;
-}
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"Remove";
 }
 
-- (IBAction)toggleEditingMode:(id)sender
-{
-    if ([self isEditing]) {
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-        [self setEditing:NO animated:YES];
-    } else {
-        [sender setTitle:@"Done"forState:UIControlStateNormal];
-        [self setEditing:YES animated:YES];
-    }
-}
 
 - (IBAction)addNewItem:(id)sender
 {

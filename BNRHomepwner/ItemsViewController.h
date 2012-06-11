@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DetailViewControllerViewController.h" 
 
 @interface ItemsViewController : UITableViewController 
 {
-    IBOutlet UIView *headerView;
+    
 }
 
-- (UIView *)headerView;
 - (IBAction)addNewItem:(id)sender;
-- (IBAction)toggleEditingMode:(id)sender;
+
 
 
 @end
