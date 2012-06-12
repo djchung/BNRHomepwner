@@ -21,6 +21,7 @@
 		73FD95FA1585387D00C56498 /* DetailViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73FD95F81585387D00C56498 /* DetailViewControllerViewController.xib */; };
 		73FD95FE158647DD00C56498 /* ChangeDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95FC158647DD00C56498 /* ChangeDateViewController.m */; };
 		73FD95FF158647DD00C56498 /* ChangeDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73FD95FD158647DD00C56498 /* ChangeDateViewController.xib */; };
+		73FD96071586CF7400C56498 /* BNRImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD96061586CF7400C56498 /* BNRImageStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		73FD95FB158647DD00C56498 /* ChangeDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDateViewController.h; sourceTree = "<group>"; };
 		73FD95FC158647DD00C56498 /* ChangeDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeDateViewController.m; sourceTree = "<group>"; };
 		73FD95FD158647DD00C56498 /* ChangeDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeDateViewController.xib; sourceTree = "<group>"; };
+		73FD96051586CF7400C56498 /* BNRImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
+		73FD96061586CF7400C56498 /* BNRImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 		73FD95D4157DF93100C56498 /* BNRHomepwner */ = {
 			isa = PBXGroup;
 			children = (
+				73FD96051586CF7400C56498 /* BNRImageStore.h */,
+				73FD96061586CF7400C56498 /* BNRImageStore.m */,
 				73FD95EF1581241B00C56498 /* GoldenGateBridge.jpg */,
 				73FD95E9157DFD1B00C56498 /* BNRItem.h */,
 				73FD95EA157DFD1B00C56498 /* BNRItem.m */,
@@ -212,6 +217,7 @@
 				73FD95EE157E011A00C56498 /* BNRItemStore.m in Sources */,
 				73FD95F91585387D00C56498 /* DetailViewControllerViewController.m in Sources */,
 				73FD95FE158647DD00C56498 /* ChangeDateViewController.m in Sources */,
+				73FD96071586CF7400C56498 /* BNRImageStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
