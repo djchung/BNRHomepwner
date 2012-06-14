@@ -9,6 +9,7 @@
 #import "DetailViewControllerViewController.h"
 #import "BNRItem.h"
 #import "BNRImageStore.h"
+#import "BNRItemStore.h"
 
 @interface DetailViewControllerViewController ()
 
@@ -16,13 +17,41 @@
 
 @implementation DetailViewControllerViewController
 @synthesize item;
+@synthesize dismissBlock;
 
+- (id)initForNewItem:(BOOL)isNew
+{
+    self = [super initWithNibName:@"DetailViewControllerViewController" bundle:nil];
+    
+    if (self) {
+        if (isNew) {
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save:)];
+            self.navigationItem.rightBarButtonItem = doneItem;
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+            self.navigationItem.leftBarButtonItem = cancelItem;
+        }
+    }
+    return self;
+}
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    @throw [NSException exceptionWithName:@"Wrong initializer" reason:@"Use initForNewItem:" userInfo:nil];
+    
+    return nil;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    UIColor *clr = nil;
+    if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        clr = [UIColor colorWithRed:0.875 green:0.88 blue:0.91 alpha:1];
+    }else {
+        clr = [UIColor groupTableViewBackgroundColor];
+    }
+    self.view.backgroundColor = clr;
+    
 }
 
 - (void)viewDidUnload {
@@ -66,6 +95,14 @@
     
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    if ([[UIDevice currentDevice]userInterfaceIdiom]==UIUserInterfaceIdiomPad) {
+        return YES;
+    }else {
+        return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
+    }
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -87,18 +124,33 @@
 }
 
 - (IBAction)takePicture:(id)sender {
+    
+    if ([imagePickerPopover isPopoverVisible]) {
+        [imagePickerPopover dismissPopoverAnimated:YES];
+        imagePickerPopover = nil;
+        return;
+    }
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
     imagePicker.allowsEditing = YES;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+     
     }else {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     imagePicker.delegate = self;
     
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        imagePickerPopover = [[UIPopoverController alloc]initWithContentViewController:imagePicker];
+        imagePickerPopover.delegate = self;
+        
+        [imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }else {
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
     
 }
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -117,8 +169,35 @@
     CFRelease(newUniqueID);
     
     imageView.image = image;
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([[UIDevice currentDevice]userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [imagePickerPopover dismissPopoverAnimated:YES];
+        imagePickerPopover = nil;
+    }else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    [item setThumbnailDataFromImage:image];
 }
 
+- (IBAction)clearImage:(id)sender {
+    imageView.image = nil;
+    [[BNRImageStore sharedStore]deleteImageForKey:item.imageKey];
+}
 
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    NSLog(@"User dismissed popover");
+    imagePickerPopover = nil;
+}
+
+- (void)save:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:dismissBlock];
+}
+
+- (void)cancel:(id)sender
+{
+    [[BNRItemStore sharedStore] removeItem:item];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:dismissBlock];
+    
+}
 @end

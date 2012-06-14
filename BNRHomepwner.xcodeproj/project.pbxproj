@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		732629AD158A593700C62B47 /* HomepwnerItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 732629AC158A593700C62B47 /* HomepwnerItemCell.m */; };
+		732629B0158A596900C62B47 /* HomepwnerItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732629AF158A596900C62B47 /* HomepwnerItemCell.xib */; };
+		732629B4158A793400C62B47 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732629B2158A793400C62B47 /* ImageViewController.m */; };
+		732629B5158A793400C62B47 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732629B3158A793400C62B47 /* ImageViewController.xib */; };
 		73FD95CF157DF93100C56498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FD95CE157DF93100C56498 /* UIKit.framework */; };
 		73FD95D1157DF93100C56498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FD95D0157DF93100C56498 /* Foundation.framework */; };
 		73FD95D3157DF93100C56498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FD95D2157DF93100C56498 /* CoreGraphics.framework */; };
@@ -25,6 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		732629AB158A593700C62B47 /* HomepwnerItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepwnerItemCell.h; sourceTree = "<group>"; };
+		732629AC158A593700C62B47 /* HomepwnerItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepwnerItemCell.m; sourceTree = "<group>"; };
+		732629AF158A596900C62B47 /* HomepwnerItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomepwnerItemCell.xib; sourceTree = "<group>"; };
+		732629B1158A793400C62B47 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewController.h; path = ../ImageViewController.h; sourceTree = "<group>"; };
+		732629B2158A793400C62B47 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewController.m; path = ../ImageViewController.m; sourceTree = "<group>"; };
+		732629B3158A793400C62B47 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageViewController.xib; path = ../ImageViewController.xib; sourceTree = "<group>"; };
 		73FD95CA157DF93100C56498 /* BNRHomepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BNRHomepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73FD95CE157DF93100C56498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		73FD95D0157DF93100C56498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +106,9 @@
 		73FD95D4157DF93100C56498 /* BNRHomepwner */ = {
 			isa = PBXGroup;
 			children = (
+				732629B1158A793400C62B47 /* ImageViewController.h */,
+				732629B2158A793400C62B47 /* ImageViewController.m */,
+				732629B3158A793400C62B47 /* ImageViewController.xib */,
 				73FD96051586CF7400C56498 /* BNRImageStore.h */,
 				73FD96061586CF7400C56498 /* BNRImageStore.m */,
 				73FD95EF1581241B00C56498 /* GoldenGateBridge.jpg */,
@@ -103,6 +116,9 @@
 				73FD95EA157DFD1B00C56498 /* BNRItem.m */,
 				73FD95EC157E011900C56498 /* BNRItemStore.h */,
 				73FD95ED157E011A00C56498 /* BNRItemStore.m */,
+				732629AB158A593700C62B47 /* HomepwnerItemCell.h */,
+				732629AC158A593700C62B47 /* HomepwnerItemCell.m */,
+				732629AF158A596900C62B47 /* HomepwnerItemCell.xib */,
 				73FD95E8157DFA2D00C56498 /* Controllers */,
 				73FD95F31581BB7400C56498 /* Views */,
 				73FD95D5157DF93100C56498 /* Supporting Files */,
@@ -200,6 +216,8 @@
 				73FD95F01581241B00C56498 /* GoldenGateBridge.jpg in Resources */,
 				73FD95FA1585387D00C56498 /* DetailViewControllerViewController.xib in Resources */,
 				73FD95FF158647DD00C56498 /* ChangeDateViewController.xib in Resources */,
+				732629B0158A596900C62B47 /* HomepwnerItemCell.xib in Resources */,
+				732629B5158A793400C62B47 /* ImageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +236,8 @@
 				73FD95F91585387D00C56498 /* DetailViewControllerViewController.m in Sources */,
 				73FD95FE158647DD00C56498 /* ChangeDateViewController.m in Sources */,
 				73FD96071586CF7400C56498 /* BNRImageStore.m in Sources */,
+				732629AD158A593700C62B47 /* HomepwnerItemCell.m in Sources */,
+				732629B4158A793400C62B47 /* ImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +306,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BNRHomepwner/BNRHomepwner-Prefix.pch";
 				INFOPLIST_FILE = "BNRHomepwner/BNRHomepwner-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -297,7 +319,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BNRHomepwner/BNRHomepwner-Prefix.pch";
 				INFOPLIST_FILE = "BNRHomepwner/BNRHomepwner-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -321,6 +345,7 @@
 				73FD95E4157DF93100C56498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -19,6 +19,7 @@
 }
 + (BNRItemStore *)sharedStore;
 
+- (BOOL)saveChanges;
 - (NSArray *)allItems;
 - (NSArray *)itemsUnder50;
 - (NSArray *)itemsOver50;
@@ -26,5 +27,7 @@
 - (void) removeItem:(BNRItem *)p;
 - (void)moveItemAtIndex:(int)from 
                 toIndex:(int)to;
+- (NSString *)itemArchivePath;
+
 
 @end

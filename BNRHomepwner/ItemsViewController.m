@@ -33,6 +33,8 @@
     /*** for Gold solution
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"GoldenGateBridge.jpg"]];
      **/
+    UINib *nib = [UINib nibWithNibName:@"HomepwnerItemCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"HomepwnerItemCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -61,8 +63,8 @@
         return [[[BNRItemStore sharedStore]itemsUnder50]count];
     }
     ***/
-    return [[[BNRItemStore sharedStore]allItems]count] + 1; //for Silver solution
-//    return [[[BNRItemStore sharedStore]allItems]count];
+//    return [[[BNRItemStore sharedStore]allItems]count] + 1; //for Silver solution
+   return [[[BNRItemStore sharedStore]allItems]count];
     
 }
 
@@ -78,12 +80,13 @@
  **/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    
+    */
     /***Bronze solution
     if (indexPath.section == 0) {
         BNRItem *bnrItem = [[[BNRItemStore sharedStore]itemsOver50]objectAtIndex:indexPath.row];
@@ -98,7 +101,7 @@
     }
     ***/
   
-
+    /*
     while (indexPath.row < [[[BNRItemStore sharedStore]allItems]count]) {
         
         BNRItem *p = [[[BNRItemStore sharedStore]allItems]objectAtIndex:indexPath.row];
@@ -110,11 +113,20 @@
     
     cell.textLabel.text = @"No more items";
     
-    /*
+    
     BNRItem *p = [[[BNRItemStore sharedStore]allItems]objectAtIndex:indexPath.row];
     
     cell.textLabel.text = p.description;
     */
+    
+    BNRItem *p = [[[BNRItemStore sharedStore]allItems]objectAtIndex:indexPath.row];
+    HomepwnerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomepwnerItemCell"];
+    cell.nameLabel.text = p.itemName;
+    cell.serialNumberLabel.text = p.serialNumber;
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", p.valueInDollars];
+    cell.thumbNailView.image = p.thumbnail;
+    cell.controller = self;
+    cell.tableView = tableView;
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,7 +134,7 @@
     NSArray *items = [[BNRItemStore sharedStore]allItems];
     BNRItem *item = [items objectAtIndex:indexPath.row];
     
-    DetailViewControllerViewController *dvc = [[DetailViewControllerViewController alloc]init];
+    DetailViewControllerViewController *dvc = [[DetailViewControllerViewController alloc]initForNewItem:NO];
     dvc.item = item;
     [self.navigationController pushViewController:dvc animated:YES];
 
@@ -171,8 +183,47 @@
 - (IBAction)addNewItem:(id)sender
 {
     BNRItem *item = [[BNRItemStore sharedStore]createItem];
-    int lastRow = [[[BNRItemStore sharedStore] allItems]indexOfObject:item];
-    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationTop];
+    DetailViewControllerViewController *dvc = [[DetailViewControllerViewController alloc]initForNewItem:YES];
+    dvc.item = item;
+    
+    [dvc setDismissBlock:^{
+        [self.tableView reloadData];
+    }];
+    
+    UINavigationController *uinav = [[UINavigationController alloc]initWithRootViewController:dvc];
+    uinav.modalPresentationStyle = UIModalPresentationFormSheet;
+    uinav.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    [self presentViewController:uinav animated:YES completion:nil];
+}
+
+- (void)showImage:(id)sender atIndexPath:(NSIndexPath *)ip
+{
+    NSLog(@"going to show the image for %@", ip);
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        BNRItem *i = [[[BNRItemStore sharedStore]allItems]objectAtIndex:ip.row];
+        NSString *imageKey = i.imageKey;
+        
+        UIImage *img = [[BNRImageStore sharedStore]imageForKey:imageKey];
+        if (!img) {
+            return;
+        }
+        CGRect rect = [self.view convertRect:[sender bounds] toView:sender];
+        ImageViewController *ivc = [[ImageViewController alloc]init];
+        ivc.image = img;
+        
+        imagePopover = [[UIPopoverController alloc]initWithContentViewController:ivc];
+        imagePopover.delegate = self;
+        imagePopover.popoverContentSize = CGSizeMake(600, 600);
+        [imagePopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    }
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    [imagePopover dismissPopoverAnimated:YES];
+    imagePopover = nil;
 }
 @end
