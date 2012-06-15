@@ -10,6 +10,7 @@
 #import "BNRItem.h"
 #import "BNRImageStore.h"
 #import "BNRItemStore.h"
+#import "AssetTypePicker.h"
 
 @interface DetailViewControllerViewController ()
 
@@ -18,6 +19,15 @@
 @implementation DetailViewControllerViewController
 @synthesize item;
 @synthesize dismissBlock;
+
+- (IBAction)showAssetTypePicker:(id)sender {
+    [self.view endEditing:YES];
+    
+    AssetTypePicker *assetTypePicker = [[AssetTypePicker alloc]init];
+    assetTypePicker.item = item;
+    
+    [self.navigationController pushViewController:assetTypePicker animated:YES];
+}
 
 - (id)initForNewItem:(BOOL)isNew
 {
@@ -60,6 +70,7 @@
     valueField = nil;
     dateLabel = nil;
     imageView = nil;
+    assetTypeButton = nil;
     [super viewDidUnload];
 }
 
@@ -74,7 +85,9 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     dateFormatter.timeStyle = NSDateFormatterNoStyle;
-    dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:item.dateCreated];
+    dateLabel.text = [dateFormatter stringFromDate:date];
     NSString *imageKey = item.imageKey;
     if (imageKey) {
         UIImage *imageToDispay = [[BNRImageStore sharedStore]imageForKey:imageKey];
@@ -82,6 +95,15 @@
     }else {
         imageView.image = nil;
     }
+    
+    NSString *typeLabel = [item.assetType valueForKey:@"label"];
+    if (!typeLabel) {
+        typeLabel = @"None";
+        
+    }
+    [assetTypeButton setTitle:[NSString stringWithFormat:@"Type: %@", typeLabel]  forState:UIControlStateNormal];
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated

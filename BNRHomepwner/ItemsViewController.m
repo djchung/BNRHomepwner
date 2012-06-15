@@ -123,7 +123,15 @@
     HomepwnerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomepwnerItemCell"];
     cell.nameLabel.text = p.itemName;
     cell.serialNumberLabel.text = p.serialNumber;
+    
+    if (p.valueInDollars > 50) {
+        cell.valueLabel.textColor = [UIColor greenColor];
+    }else if (p.valueInDollars <= 50) {
+        cell.valueLabel.textColor = [UIColor redColor];
+    }
+    
     cell.valueLabel.text = [NSString stringWithFormat:@"$%d", p.valueInDollars];
+    
     cell.thumbNailView.image = p.thumbnail;
     cell.controller = self;
     cell.tableView = tableView;

@@ -1,27 +1,28 @@
 //
-//  ChangeDateViewController.m
+//  AddAssetType.m
 //  BNRHomepwner
 //
-//  Created by DJ Chung on 6/11/12.
+//  Created by DJ Chung on 6/15/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "ChangeDateViewController.h"
+#import "AddAssetType.h"
 #import "BNRItem.h"
+#import "BNRItemStore.h"
 
-@interface ChangeDateViewController ()
+@interface AddAssetType ()
 
 @end
 
-@implementation ChangeDateViewController
+@implementation AddAssetType
 
 @synthesize item;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        UIBarButtonItem *cancel = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
+        self.navigationItem.leftBarButtonItem = cancel;
     }
     return self;
 }
@@ -30,14 +31,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    [datePicker addTarget:self action:@selector(dateChanged) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)viewDidUnload
 {
-
-    datePicker = nil;
+    assetTypeText = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -48,11 +46,16 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-/*
-- (void)dateChanged
+- (void)cancel
 {
-    item.dateCreated = datePicker.date;
+    [self.presentingViewController dismissModalViewControllerAnimated:YES];
 }
-*/
-
+- (IBAction)saveNewAssetType:(id)sender {
+    NSString *newAssetType = assetTypeText.text;
+    
+    [[BNRItemStore sharedStore]addNewAssetType:newAssetType];
+    
+    [self.presentingViewController dismissModalViewControllerAnimated:YES];
+    
+}
 @end

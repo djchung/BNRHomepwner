@@ -14,6 +14,7 @@
 @interface DetailViewControllerViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate>
 {
     
+    __weak IBOutlet UIButton *assetTypeButton;
     __weak IBOutlet UIImageView *imageView;
     __weak IBOutlet UILabel *dateLabel;
     __weak IBOutlet UITextField *valueField;
@@ -22,6 +23,7 @@
     
     UIPopoverController *imagePickerPopover;
 }
+- (IBAction)showAssetTypePicker:(id)sender;
 
 - (id)initForNewItem:(BOOL)isNew;
 - (IBAction)backgroundTapped:(id)sender;

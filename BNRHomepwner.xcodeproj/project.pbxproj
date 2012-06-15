@@ -11,6 +11,13 @@
 		732629B0158A596900C62B47 /* HomepwnerItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732629AF158A596900C62B47 /* HomepwnerItemCell.xib */; };
 		732629B4158A793400C62B47 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732629B2158A793400C62B47 /* ImageViewController.m */; };
 		732629B5158A793400C62B47 /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732629B3158A793400C62B47 /* ImageViewController.xib */; };
+		732629B8158A846800C62B47 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 732629B7158A846800C62B47 /* BaseCell.m */; };
+		732629BA158A8B7200C62B47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 732629B9158A8B7200C62B47 /* CoreData.framework */; };
+		732629BD158A8BC500C62B47 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 732629BB158A8BC500C62B47 /* Homepwner.xcdatamodeld */; };
+		732629C0158A8E1F00C62B47 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 732629BF158A8E1F00C62B47 /* BNRItem.m */; };
+		732629C3158B8B0500C62B47 /* AssetTypePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 732629C2158B8B0500C62B47 /* AssetTypePicker.m */; };
+		732629C7158B917800C62B47 /* AddAssetType.m in Sources */ = {isa = PBXBuildFile; fileRef = 732629C5158B917800C62B47 /* AddAssetType.m */; };
+		732629C8158B917900C62B47 /* AddAssetType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732629C6158B917800C62B47 /* AddAssetType.xib */; };
 		73FD95CF157DF93100C56498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FD95CE157DF93100C56498 /* UIKit.framework */; };
 		73FD95D1157DF93100C56498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FD95D0157DF93100C56498 /* Foundation.framework */; };
 		73FD95D3157DF93100C56498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FD95D2157DF93100C56498 /* CoreGraphics.framework */; };
@@ -18,7 +25,6 @@
 		73FD95DB157DF93100C56498 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95DA157DF93100C56498 /* main.m */; };
 		73FD95DF157DF93100C56498 /* BNRHomepwnerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95DE157DF93100C56498 /* BNRHomepwnerAppDelegate.m */; };
 		73FD95E7157DFA1B00C56498 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95E6157DFA1A00C56498 /* ItemsViewController.m */; };
-		73FD95EB157DFD1B00C56498 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95EA157DFD1B00C56498 /* BNRItem.m */; };
 		73FD95EE157E011A00C56498 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95ED157E011A00C56498 /* BNRItemStore.m */; };
 		73FD95F01581241B00C56498 /* GoldenGateBridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73FD95EF1581241B00C56498 /* GoldenGateBridge.jpg */; };
 		73FD95F91585387D00C56498 /* DetailViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FD95F71585387D00C56498 /* DetailViewControllerViewController.m */; };
@@ -35,6 +41,17 @@
 		732629B1158A793400C62B47 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewController.h; path = ../ImageViewController.h; sourceTree = "<group>"; };
 		732629B2158A793400C62B47 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewController.m; path = ../ImageViewController.m; sourceTree = "<group>"; };
 		732629B3158A793400C62B47 /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageViewController.xib; path = ../ImageViewController.xib; sourceTree = "<group>"; };
+		732629B6158A846800C62B47 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
+		732629B7158A846800C62B47 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
+		732629B9158A8B7200C62B47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		732629BC158A8BC500C62B47 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		732629BE158A8E1F00C62B47 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
+		732629BF158A8E1F00C62B47 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
+		732629C1158B8B0500C62B47 /* AssetTypePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetTypePicker.h; sourceTree = "<group>"; };
+		732629C2158B8B0500C62B47 /* AssetTypePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTypePicker.m; sourceTree = "<group>"; };
+		732629C4158B917700C62B47 /* AddAssetType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAssetType.h; sourceTree = "<group>"; };
+		732629C5158B917800C62B47 /* AddAssetType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAssetType.m; sourceTree = "<group>"; };
+		732629C6158B917800C62B47 /* AddAssetType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAssetType.xib; sourceTree = "<group>"; };
 		73FD95CA157DF93100C56498 /* BNRHomepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BNRHomepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73FD95CE157DF93100C56498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		73FD95D0157DF93100C56498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,8 +64,6 @@
 		73FD95DE157DF93100C56498 /* BNRHomepwnerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRHomepwnerAppDelegate.m; sourceTree = "<group>"; };
 		73FD95E5157DFA1A00C56498 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
 		73FD95E6157DFA1A00C56498 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
-		73FD95E9157DFD1B00C56498 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
-		73FD95EA157DFD1B00C56498 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		73FD95EC157E011900C56498 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
 		73FD95ED157E011A00C56498 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
 		73FD95EF1581241B00C56498 /* GoldenGateBridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GoldenGateBridge.jpg; sourceTree = "<group>"; };
@@ -67,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				732629BA158A8B7200C62B47 /* CoreData.framework in Frameworks */,
 				73FD95CF157DF93100C56498 /* UIKit.framework in Frameworks */,
 				73FD95D1157DF93100C56498 /* Foundation.framework in Frameworks */,
 				73FD95D3157DF93100C56498 /* CoreGraphics.framework in Frameworks */,
@@ -79,6 +95,7 @@
 		73FD95BF157DF93100C56498 = {
 			isa = PBXGroup;
 			children = (
+				732629B9158A8B7200C62B47 /* CoreData.framework */,
 				73FD95D4157DF93100C56498 /* BNRHomepwner */,
 				73FD95CD157DF93100C56498 /* Frameworks */,
 				73FD95CB157DF93100C56498 /* Products */,
@@ -106,14 +123,15 @@
 		73FD95D4157DF93100C56498 /* BNRHomepwner */ = {
 			isa = PBXGroup;
 			children = (
+				732629BB158A8BC500C62B47 /* Homepwner.xcdatamodeld */,
+				732629BE158A8E1F00C62B47 /* BNRItem.h */,
+				732629BF158A8E1F00C62B47 /* BNRItem.m */,
 				732629B1158A793400C62B47 /* ImageViewController.h */,
 				732629B2158A793400C62B47 /* ImageViewController.m */,
 				732629B3158A793400C62B47 /* ImageViewController.xib */,
 				73FD96051586CF7400C56498 /* BNRImageStore.h */,
 				73FD96061586CF7400C56498 /* BNRImageStore.m */,
 				73FD95EF1581241B00C56498 /* GoldenGateBridge.jpg */,
-				73FD95E9157DFD1B00C56498 /* BNRItem.h */,
-				73FD95EA157DFD1B00C56498 /* BNRItem.m */,
 				73FD95EC157E011900C56498 /* BNRItemStore.h */,
 				73FD95ED157E011A00C56498 /* BNRItemStore.m */,
 				732629AB158A593700C62B47 /* HomepwnerItemCell.h */,
@@ -140,6 +158,11 @@
 		73FD95E8157DFA2D00C56498 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				732629C4158B917700C62B47 /* AddAssetType.h */,
+				732629C5158B917800C62B47 /* AddAssetType.m */,
+				732629C6158B917800C62B47 /* AddAssetType.xib */,
+				732629C1158B8B0500C62B47 /* AssetTypePicker.h */,
+				732629C2158B8B0500C62B47 /* AssetTypePicker.m */,
 				73FD95FB158647DD00C56498 /* ChangeDateViewController.h */,
 				73FD95FC158647DD00C56498 /* ChangeDateViewController.m */,
 				73FD95DD157DF93100C56498 /* BNRHomepwnerAppDelegate.h */,
@@ -147,6 +170,8 @@
 				73FD95F61585387D00C56498 /* DetailViewControllerViewController.h */,
 				73FD95F71585387D00C56498 /* DetailViewControllerViewController.m */,
 				73FD95E5157DFA1A00C56498 /* ItemsViewController.h */,
+				732629B6158A846800C62B47 /* BaseCell.h */,
+				732629B7158A846800C62B47 /* BaseCell.m */,
 				73FD95E6157DFA1A00C56498 /* ItemsViewController.m */,
 			);
 			name = Controllers;
@@ -218,6 +243,7 @@
 				73FD95FF158647DD00C56498 /* ChangeDateViewController.xib in Resources */,
 				732629B0158A596900C62B47 /* HomepwnerItemCell.xib in Resources */,
 				732629B5158A793400C62B47 /* ImageViewController.xib in Resources */,
+				732629C8158B917900C62B47 /* AddAssetType.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,13 +257,17 @@
 				73FD95DB157DF93100C56498 /* main.m in Sources */,
 				73FD95DF157DF93100C56498 /* BNRHomepwnerAppDelegate.m in Sources */,
 				73FD95E7157DFA1B00C56498 /* ItemsViewController.m in Sources */,
-				73FD95EB157DFD1B00C56498 /* BNRItem.m in Sources */,
 				73FD95EE157E011A00C56498 /* BNRItemStore.m in Sources */,
 				73FD95F91585387D00C56498 /* DetailViewControllerViewController.m in Sources */,
 				73FD95FE158647DD00C56498 /* ChangeDateViewController.m in Sources */,
 				73FD96071586CF7400C56498 /* BNRImageStore.m in Sources */,
 				732629AD158A593700C62B47 /* HomepwnerItemCell.m in Sources */,
 				732629B4158A793400C62B47 /* ImageViewController.m in Sources */,
+				732629B8158A846800C62B47 /* BaseCell.m in Sources */,
+				732629BD158A8BC500C62B47 /* Homepwner.xcdatamodeld in Sources */,
+				732629C0158A8E1F00C62B47 /* BNRItem.m in Sources */,
+				732629C3158B8B0500C62B47 /* AssetTypePicker.m in Sources */,
+				732629C7158B917800C62B47 /* AddAssetType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +378,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		732629BB158A8BC500C62B47 /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				732629BC158A8BC500C62B47 /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = 732629BC158A8BC500C62B47 /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 73FD95C1157DF93100C56498 /* Project object */;
 }
